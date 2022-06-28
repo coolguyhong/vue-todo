@@ -25,14 +25,14 @@
 import Modal from './common/Modal.vue'
 // slot의 경우 일부 ui 재사용할 수 있는 기능
 export default {
-  data: function() {
+  data() {
     return {
       newTodoItem: "",
       showModal: false
     }
   },
   methods: {
-    addTodo: function() {
+    addTodo() {
       if (this.newTodoItem !== '') {
         this.$emit('addTodoItem', this.newTodoItem)
         this.clearInput()
@@ -40,7 +40,7 @@ export default {
         this.showModal = !this.showModal
       }
     },
-    clearInput: function() {
+    clearInput() {
       this.newTodoItem = ''
     }
   },
