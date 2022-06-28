@@ -16,9 +16,10 @@ export default {
   },
   methods: {
     addTodo: function() {
-      var obj = {completed: false, item: this.newTodoItem}
-      localStorage.setItem(this.newTodoItem, JSON.stringify(obj)) // Javascript 객체를 string으로 변환
-      this.clearInput()
+      if (this.newTodoItem !== '') {
+        this.$emit('addTodoItem', this.newTodoItem)
+        this.clearInput()
+      }
     },
     clearInput: function() {
       this.newTodoItem = ''
